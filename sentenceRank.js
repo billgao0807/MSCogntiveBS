@@ -94,7 +94,9 @@ function sentenceRank(textBlock, keywords) {
     // Calculate score of sentences.
     var totalScore = 0.0;
     var maxScore = 0.0;
+    // for each sentence
     for(sentence in sentenceToKeywords) {
+
         var keywordsInSentence = sentenceToKeywords[sentence];
         sentenceToScore[sentence] = 0.0;
         for(word in keywordsInSentence) {
@@ -105,7 +107,27 @@ function sentenceRank(textBlock, keywords) {
         }
         totalScore += sentenceToScore[sentence];
     }
-    // alert("maxscore:"+maxScore);
+    alert("maxscore:"+maxScore);
+    var cueWords = ["all in all","conclude","conclusion","consequently","finally",
+                    "first","general","generally","important","importantly","in all",
+                    "in brief","in effect","in essence","in general","in particular",
+                    "in short","last","on the whole","overall","particularly","result",
+                    "second","significant","significantly","summary","therefore","third",
+                    "thus","to sum up","ultimately"];
+    for (sentence in sentenceToScore) {
+        var lowerSentence = sentence.toLowerCase();
+        // for (i in cueWords) {
+
+        // }
+        if (new RegExp(cueWords.join("|")).test(lowerSentence)) {
+            sentenceToScore[sentence] += 1.0;
+            totalScore += 1;
+            if (sentenceToScore[sentence] > maxScore) {
+                maxScore = sentenceToScore[sentence];
+            }
+            alert("hit: " + sentence);
+        }
+    }
 
     var avgScore = totalScore / allSentences.length;
 
