@@ -21,19 +21,23 @@ function analyzeText(content) {
     })
     .done(function(data) {
         alert("success");
-        alert(JSON.stringify(data));
-        var strings = data[0][0].keyPhrases;
+        //alert(JSON.stringify(data));
+        var keywords = data["documents"][0]["keyPhrases"];
+
+        var i;
+        // for(i=0; i<keywords.length; i++) {
+        //     alert(keywords[i]);
+        // }
 
 
         var sentences = sentenceRank(content, keywords);
 
         var result = "";
-        var i;
-        for(i=0; i<sentences; i++) {
-            result +=sentences[i] + "\n";
+        for(i=0; i<sentences.length; i++) {
+            result += sentences[i] + "\n";
         }
 
-        alert(result);
+        //alert(result);
         outputTextBox.innerHTML = result;
     })
     .fail(function() {
