@@ -71,12 +71,12 @@ function sentenceRank(textBlock, keywords) {
         }
     }
 
-    var jeffsRes = "";
-    for (word in keywordsToValues) {
-        jeffsRes += word + " " + keywordsToValues[word] + "\n";
-    }
-    alert("keywords to values after all the madness:");
-    alert(jeffsRes);
+    // var jeffsRes = "";
+    // for (word in keywordsToValues) {
+    //     jeffsRes += word + " " + keywordsToValues[word] + "\n";
+    // }
+    // alert("keywords to values after all the madness:");
+    // alert(jeffsRes);
 
     // Calculate heuristic value of keywords.
     var maxCount = 0.0;
@@ -107,7 +107,7 @@ function sentenceRank(textBlock, keywords) {
         }
         totalScore += sentenceToScore[sentence];
     }
-    alert("maxscore:"+maxScore);
+    // alert("maxscore:"+maxScore);
     var cueWords = ["all in all","conclude","conclusion","consequently","finally",
                     "first","general","generally","important","importantly","in all",
                     "in brief","in effect","in essence","in general","in particular",
@@ -125,7 +125,7 @@ function sentenceRank(textBlock, keywords) {
             if (sentenceToScore[sentence] > maxScore) {
                 maxScore = sentenceToScore[sentence];
             }
-            alert("hit: " + sentence);
+            // 
         }
     }
 

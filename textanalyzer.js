@@ -1,5 +1,7 @@
 function analyzeText(content) {
-    var outputTextBox = document.getElementById("summarize-text-output");
+    var keywordText = document.getElementById("keywords-output");
+    var summaryTitleText = document.getElementById("summary-title-output");
+    var summaryContentText = document.getElementById('summary-output');
     var params = {
         // Request parameters
         "minDocumentsPerWord": "1",
@@ -8,7 +10,7 @@ function analyzeText(content) {
     var str = "Imagine that you are a gubernatorial candidate who is making education and college preparedness a key facet of your campaign";
 
     content = content.replace(/["']/g, "");
-    alert(content);
+    // alert(content);
     $.ajax({
         dataType: 'json',
         url: "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases?" + $.param(params),
@@ -23,7 +25,7 @@ function analyzeText(content) {
         data: "{'documents': [{'language': 'en','id': '1','text': '" + content + "' }]}",
     })
     .done(function(data) {
-        alert("success");
+        // alert("success");
         //alert(JSON.stringify(data));
         var keywords = data["documents"][0]["keyPhrases"];
 
@@ -41,7 +43,16 @@ function analyzeText(content) {
         }
 
         //alert(result);
-        outputTextBox.innerHTML = result;
+        var preData = "<b>Keywords:</b> " + keywords[0];
+
+        for (i = 1; i < keywords.length; i++) {
+            preData += (", " + keywords[i]);
+        }
+        keywordText.innerHTML = preData;
+        preData = "";
+        preData += "<b>Summary: </b>";
+
+        summaryContentText.innerHTML = preData+result;
     })
     .fail(function() {
         alert("error");
