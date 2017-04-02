@@ -5,7 +5,10 @@ body {
 span {
     font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
     font-size: 16pt;
-    max-width: 700px;        
+    max-width: 700px;
+}
+h1, p {
+    font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
 }
 
 .partial {
@@ -19,7 +22,7 @@ span {
 .cursor {
     color: lightgrey;
     display: none;
-    
+
     animation: blink 750ms infinite;
 }
 
@@ -31,14 +34,25 @@ span {
     @keyframes blink {
 
         60% {opacity: 1;}
-        
+
         0%, 100% {opacity: 0;}
     }
-
+.output-textbox {
+    height: 10em;
+    border: lightgrey solid 2px;
+    border-radius: 5px;
+    margin: 1em 0;
+}
+.button-container{
+    text-align: right;
+}
 #toggleMic {
-    position: fixed;
+    /*position: fixed;
     right: 20px;
-    bottom: 20px;
+    bottom: 20px;*/
+    position:relative;
+    display: inline-block;
+    cursor: pointer;
 
     background-color: dodgerblue;
     background-image: url(img/mic.svg);
@@ -50,6 +64,7 @@ span {
 
     width: 40px;
     height: 40px;
+    margin-left: 1em;
 }
 
     #toggleMic:hover {
@@ -63,3 +78,17 @@ span {
     .listening #toggleMic:hover {
         background-color: lightcoral;
     }
+#summarize-button {
+    background-color: dodgerblue;
+    color: white;
+    display:inline-block;
+    height: 40px;
+    width: 70px;
+    border: none;
+    cursor: pointer;
+    vertical-align: top;
+    border-radius: 5px;
+}
+#summarize-button:hover {
+    background-color:#1eaaff;
+}
