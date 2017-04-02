@@ -45,6 +45,8 @@ function handleFileSelect(evt) {
       websocket.close();
       document.getElementById('outputText').innerHTML =  '';
     }
+    // document.getElementById('outputText').innerHTML =  '';
+    textToDisplay = ''
     websocket = new WebSocket(apiAddr);
 
     websocket.onerror = function (event) {
