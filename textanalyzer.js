@@ -6,6 +6,9 @@ function analyzeText(content) {
         "maxDocumentsPerWord": "5",
     };
     var str = "Imagine that you are a gubernatorial candidate who is making education and college preparedness a key facet of your campaign";
+
+    content = content.replace(/["']/g, "");
+    alert(content);
     $.ajax({
         dataType: 'json',
         url: "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases?" + $.param(params),
@@ -17,7 +20,7 @@ function analyzeText(content) {
         type: "POST",
         // Request body
 
-        data: "{'documents': [{'language': 'en','id': '1','text': '" + content + "'    }]}",
+        data: "{'documents': [{'language': 'en','id': '1','text': '" + content + "' }]}",
     })
     .done(function(data) {
         alert("success");
