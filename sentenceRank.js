@@ -32,7 +32,7 @@ function sentenceRank(textBlock, keywords) {
         keywordsToValues[keyToLower] = 0.0;
     }
 
-    alert("about to do the craziness");
+    // alert("about to do the craziness");
     // Count occurences of every keyword in sentence.
     // Count occurrences of every keyword in total.
     for(i in allSentences) {
@@ -71,12 +71,12 @@ function sentenceRank(textBlock, keywords) {
         }
     }
 
-    // var jeffsRes = "";
-    // for (word in keywordsToValues) {
-    //     jeffsRes += word + " " + keywordsToValues[word] + "\n";
-    // }
-    // alert("keywords to values after all the madness:");
-    // alert(jeffsRes);
+    var jeffsRes = "";
+    for (word in keywordsToValues) {
+        jeffsRes += word + " " + keywordsToValues[word] + "\n";
+    }
+    alert("keywords to values after all the madness:");
+    alert(jeffsRes);
 
     // Calculate heuristic value of keywords.
     var maxCount = 0.0;
