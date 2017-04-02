@@ -7,7 +7,7 @@ function analyzeText(content) {
     };
     var str = "Imagine that you are a gubernatorial candidate who is making education and college preparedness a key facet of your campaign";
 
-    content = content.replace(/["']/g, "");
+    content = content.replace(/["']/g, "-");
     alert(content);
     $.ajax({
         dataType: 'json',

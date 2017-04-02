@@ -79,9 +79,8 @@ function handleFileSelect(evt) {
       var ch = data.charAt(0);
       var message = data.substring(1);
       if (ch == 'e') {
-        this.onerr(new Error("API Error"));
-
-        this.stopListening();
+        websocket.onclose = function () {}; // disable onclose handler first
+        websocket.close();
       }
       else {
         var text = message;
